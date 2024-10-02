@@ -56,7 +56,15 @@ export default function CreatePage() {
       setGeneratedBanners(data)
     } catch (error) {
       console.error('Error generating images:', error)
-      setError('An error occurred while generating the banners. Please try again.')
+      setError('An error occurred while generating the banners. Showing placeholder images.')
+      // Set placeholder data if the API call fails
+      setGeneratedBanners({
+        images: Array(4).fill({
+          url: '/coke/1.png',
+          content_type: 'image/png'
+        }),
+        prompt: 'Placeholder prompt for demonstration purposes'
+      })
     } finally {
       setIsGenerating(false)
     }
