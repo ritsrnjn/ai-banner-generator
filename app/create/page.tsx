@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Input } from '@/components/ui/input'
-// import { Textarea } from '@/components/ui/textarea'
+import { Textarea } from '@/components/ui/textarea'
 import Link from 'next/link'
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { AlertCircle } from "lucide-react"
@@ -96,6 +96,7 @@ export default function CreatePage() {
       <main className="flex-grow bg-gray-50">
         <div className="container mx-auto px-4 py-8">
           <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">Create Your Banner</h1>
+
           <Alert variant="destructive" className="mb-6">
             <AlertCircle className="h-4 w-4" />
             <AlertTitle>Error</AlertTitle>
@@ -155,7 +156,7 @@ export default function CreatePage() {
               </div>
             </div>
 
-            {/* <div>
+            <div>
               <label htmlFor="additional-input" className="block text-sm font-medium text-gray-700 mb-1">
                 Additional Input
               </label>
@@ -166,7 +167,7 @@ export default function CreatePage() {
                 onChange={(e) => setAdditionalInput(e.target.value)}
                 className="w-full"
               />
-            </div> */}
+            </div>
 
             <div>
               <label htmlFor="size" className="block text-sm font-medium text-gray-700 mb-1">
