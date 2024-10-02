@@ -22,7 +22,7 @@ export default function HomePage() {
           <div className="container mx-auto text-center">
             <h2 className="text-4xl font-bold mb-4">Create Stunning Banners with AI</h2>
             <p className="text-xl text-gray-600 mb-8">Generate professional-looking banners in seconds using the power of artificial intelligence.</p>
-            <Link href="/create-banner" passHref>
+            <Link href="/create" passHref>
               <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full transition-colors">
                 Start Creating
               </Button>

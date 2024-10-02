@@ -6,6 +6,18 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import Link from 'next/link'
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { AlertCircle } from "lucide-react"
+
+interface BannerImage {
+  url: string;
+  content_type: string;
+}
+
+interface BannerResponse {
+  images: BannerImage[];
+  prompt: string;
+}
 
 export default function CreatePage() {
   const [product, setProduct] = useState('')
@@ -14,24 +26,37 @@ export default function CreatePage() {
   const [additionalInput, setAdditionalInput] = useState('')
   const [size, setSize] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
-  const [generatedImages, setGeneratedImages] = useState<string[]>([])
+  const [generatedBanners, setGeneratedBanners] = useState<BannerResponse | null>(null)
+  const [error, setError] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsGenerating(true)
+    setError(null)
 
-    // Simulating API call
     try {
-      // Replace this with your actual API call
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      setGeneratedImages([
-        '/coke/1.png',
-        '/coke/3.png',
-        '/coke/2.png',
-        '/coke/4.png',
-      ])
+      const response = await fetch('/api/generate-banner', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          theme: theme === 'custom' ? customTheme : theme,
+          size,
+          product,
+          additionalInput,
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to generate banner')
+      }
+
+      const data: BannerResponse = await response.json()
+      setGeneratedBanners(data)
     } catch (error) {
       console.error('Error generating images:', error)
+      setError('An error occurred while generating the banners. Please try again.')
     } finally {
       setIsGenerating(false)
     }
@@ -55,6 +80,13 @@ export default function CreatePage() {
       <main className="flex-grow bg-gray-50">
         <div className="container mx-auto px-4 py-8">
           <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">Create Your Banner</h1>
+          {error && (
+            <Alert variant="destructive" className="mb-6">
+              <AlertCircle className="h-4 w-4" />
+              <AlertTitle>Error</AlertTitle>
+              <AlertDescription>{error}</AlertDescription>
+            </Alert>
+          )}
           <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6 bg-white p-8 rounded-lg shadow-md">
             <div>
               <label htmlFor="product" className="block text-sm font-medium text-gray-700 mb-1">
@@ -139,13 +171,14 @@ export default function CreatePage() {
             </Button>
           </form>
 
-          {generatedImages.length > 0 && (
+          {generatedBanners && (
             <div className="mt-12">
               <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Generated Banners</h2>
+              <p className="text-center text-gray-600 mb-6">Prompt: {generatedBanners.prompt}</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                {generatedImages.map((src, index) => (
+                {generatedBanners.images.map((image, index) => (
                   <div key={index} className="bg-white p-4 rounded-lg shadow-md">
-                    <img src={src} alt={`Generated banner ${index + 1}`} className="w-full h-auto rounded" />
+                    <img src={image.url} alt={`Generated banner ${index + 1}`} className="w-full h-auto rounded" />
                   </div>
                 ))}
               </div>
