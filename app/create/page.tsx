@@ -8,6 +8,14 @@ import { Textarea } from '@/components/ui/textarea'
 import Link from 'next/link'
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { AlertCircle } from "lucide-react"
+import {
+  Dialog,
+  DialogContent,
+  // DialogDescription,
+  // DialogHeader,
+  // DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 
 interface BannerImage {
   url: string;
@@ -35,7 +43,7 @@ export default function CreatePage() {
     setError(null)
 
     try {
-      const response = await fetch('/api/generate-banner', {
+            const response = await fetch('/api/generate-banner', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -56,7 +64,7 @@ export default function CreatePage() {
       setGeneratedBanners(data)
     } catch (error) {
       console.error('Error generating images:', error)
-      setError('An error occurred while generating the banners. Showing placeholder images.')
+      setError('An Internal Server Error occurred while generating the banners. Working to fix it soon! Showing placeholder images.')
       // Set placeholder data if the API call fails
       setGeneratedBanners({
         images: Array(4).fill({
@@ -74,7 +82,7 @@ export default function CreatePage() {
     <div className="flex flex-col min-h-screen">
       <header className="py-6 px-4 bg-gradient-to-r from-purple-500 to-pink-500">
         <div className="container mx-auto flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold text-white">AI Banner Generator</Link>
+          <Link href="/" className="text-2xl font-bold text-white">AdVinci</Link>
           <nav>
             <ul className="flex space-x-4">
               <li><Link href="/#features" className="text-white hover:text-gray-200 transition-colors">Features</Link></li>
@@ -106,7 +114,7 @@ export default function CreatePage() {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="coca-cola">Coca Cola</SelectItem>
-                  <SelectItem value="mirinda">Mirinda</SelectItem>
+                  <SelectItem value="mirinda">MyWoodCup</SelectItem>
                   <SelectItem value="cadbury">Cadbury</SelectItem>
                 </SelectContent>
               </Select>
@@ -182,12 +190,24 @@ export default function CreatePage() {
           {generatedBanners && (
             <div className="mt-12">
               <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Generated Banners</h2>
-              <p className="text-center text-gray-600 mb-6">Prompt: {generatedBanners.prompt}</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 {generatedBanners.images.map((image, index) => (
-                  <div key={index} className="bg-white p-4 rounded-lg shadow-md">
-                    <img src={image.url} alt={`Generated banner ${index + 1}`} className="w-full h-auto rounded" />
-                  </div>
+                  <Dialog key={index}>
+                    <DialogTrigger asChild>
+                      <div className="bg-white p-4 rounded-lg shadow-md cursor-pointer transition-transform hover:scale-105">
+                        <img src={image.url} alt={`Generated banner ${index + 1}`} className="w-full h-auto rounded" />
+                      </div>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[90vw] sm:max-h-[90vh]">
+                      {/* <DialogHeader>
+                        <DialogTitle>Banner Preview</DialogTitle>
+                        <DialogDescription>Click outside or press ESC to close</DialogDescription>
+                      </DialogHeader> */}
+                      <div className="mt-4 relative">
+                        <img src={image.url} alt={`Generated banner ${index + 1}`} className="w-full h-auto" />
+                      </div>
+                    </DialogContent>
+                  </Dialog>
                 ))}
               </div>
             </div>
