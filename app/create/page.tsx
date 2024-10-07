@@ -133,6 +133,7 @@ export default function CreatePage() {
                   {/* <SelectItem value="Amul Milk">Amul Milk</SelectItem> */}
                 </SelectContent>
               </Select>
+              <p className="text-sm text-gray-500 mt-2">For any custom product we first need to train a LoRA, Backend is ready and we are integrating with frontend soon! Please check back, Thanks!</p>
             </div>
 
             <div>
