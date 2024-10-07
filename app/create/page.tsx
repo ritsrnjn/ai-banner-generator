@@ -148,7 +148,7 @@ export default function CreatePage() {
                     <SelectItem value="diwali">Diwali</SelectItem>
                     <SelectItem value="holi">Holi</SelectItem>
                     <SelectItem value="christmas">Christmas</SelectItem>
-                    <SelectItem value="republic-day">Republic Day</SelectItem>
+                    {/* <SelectItem value="republic-day">Republic Day</SelectItem> */}
                     <SelectItem value="custom">Custom</SelectItem>
                   </SelectContent>
                 </Select>
