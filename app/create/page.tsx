@@ -31,7 +31,8 @@ export default function CreatePage() {
   const [product, setProduct] = useState('')
   const [theme, setTheme] = useState('')
   const [customTheme, setCustomTheme] = useState('')
-  const [additionalInput, setAdditionalInput] = useState('')
+  // const [additionalInput, setAdditionalInput] = useState('')
+  const [promotionalOffer, setPromotionalOffer] = useState('')
   const [size, setSize] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
   const [generatedBanners, setGeneratedBanners] = useState<BannerResponse | null>(null)
@@ -52,7 +53,7 @@ export default function CreatePage() {
         theme: theme === 'custom' ? customTheme : theme,
         size,
         product,
-        additionalInput,
+        promotionalOffer,
       }),
     })
 
@@ -157,6 +158,19 @@ export default function CreatePage() {
             </div>
 
             <div>
+              <label htmlFor="promotional-offer" className="block text-sm font-medium text-gray-700 mb-1">
+                Promotional Offer
+              </label>
+              <Textarea
+                id="promotional-offer"
+                placeholder="Enter any Promotional Offer"
+                value={promotionalOffer}
+                onChange={(e) => setPromotionalOffer(e.target.value)}
+                className="w-full"
+              />
+            </div>
+
+            {/* <div>
               <label htmlFor="additional-input" className="block text-sm font-medium text-gray-700 mb-1">
                 Additional Input
               </label>
@@ -167,7 +181,7 @@ export default function CreatePage() {
                 onChange={(e) => setAdditionalInput(e.target.value)}
                 className="w-full"
               />
-            </div>
+            </div> */}
 
             <div>
               <label htmlFor="size" className="block text-sm font-medium text-gray-700 mb-1">
@@ -179,8 +193,10 @@ export default function CreatePage() {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="square">Square</SelectItem>
-                  <SelectItem value="landscape">Landscape</SelectItem>
-                  <SelectItem value="portrait">Portrait</SelectItem>
+                  <SelectItem value="portrait_4_3">Portrait 4:3</SelectItem>
+                  <SelectItem value="portrait_16_9">Portrait 16:9</SelectItem>
+                  <SelectItem value="landscape_4_3">Landscape 4:3</SelectItem>
+                  <SelectItem value="landscape_16_9">Landscape 16:9</SelectItem>
                 </SelectContent>
               </Select>
             </div>

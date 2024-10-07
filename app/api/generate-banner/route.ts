@@ -12,7 +12,7 @@ interface BannerResponse {
 
 export async function POST(request: NextRequest) {
   try {
-    const { theme, size, product, additionalInput } = await request.json()
+    const { theme, size, product, proomotionalOffer } = await request.json()
 
     // Validate input
     if (!theme || !size || !product) {
@@ -20,10 +20,11 @@ export async function POST(request: NextRequest) {
     }
 
     const requestBody = {
-      product_name: product, // Assuming 'product' maps to 'product_name'
+      product_name: product, 
       theme,
-      extra_input: additionalInput, // Assuming 'additionalInput' maps to 'extra_input'
-      promotional_offer: size, // Assuming 'size' maps to 'promotional_offer'; adjust if this is incorrect
+      // extra_input: additionalInput, 
+      promotional_offer: proomotionalOffer,
+      image_size: size,
     };
 
     // Make the actual API call to generate banners
