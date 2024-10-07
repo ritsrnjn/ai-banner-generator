@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
     const requestBody = {
       product_name: product, 
       theme,
-      extra_input: 'The Images should be very advertisment like with very less text', 
+      extra_input: 'The Images should be like a advertisment. Text should be very minimal relvant to promotional offer', 
       promotional_offer: promotionalOffer,
       image_size: size,
     };

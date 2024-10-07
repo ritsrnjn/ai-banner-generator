@@ -62,7 +62,11 @@ export default function CreatePage() {
     }
 
     const data: BannerResponse = await response.json()
-    setGeneratedBanners(data)
+
+    setGeneratedBanners({
+      images: data.images,
+      prompt: data.prompt,
+    })
     } catch (error) {
       console.error('Error generating images:', error)
       setError('An Internal Server Error occurred while generating the banners. Working to fix it soon! Showing placeholder images.')
