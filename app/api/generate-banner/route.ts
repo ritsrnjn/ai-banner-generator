@@ -12,7 +12,7 @@ interface BannerResponse {
 
 export async function POST(request: NextRequest) {
   try {
-    const { theme, size, product, proomotionalOffer } = await request.json()
+    const { theme, size, product, promotionalOffer } = await request.json()
 
     // Validate input
     if (!theme || !size || !product) {
@@ -22,8 +22,8 @@ export async function POST(request: NextRequest) {
     const requestBody = {
       product_name: product, 
       theme,
-      // extra_input: additionalInput, 
-      promotional_offer: proomotionalOffer,
+      extra_input: 'The Images should be very advertisment like with very less text', 
+      promotional_offer: promotionalOffer,
       image_size: size,
     };
 
