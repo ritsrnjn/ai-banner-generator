@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Make the actual API call to generate banners
-    const response = await fetch('http://44.201.113.177:8000/generate-ad', {
+    const response = await fetch('https://ai-banner-generator-backend-74430738063.us-central1.run.app/generate-ad', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
