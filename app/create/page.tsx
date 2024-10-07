@@ -171,7 +171,7 @@ export default function CreatePage() {
               </label>
               <Textarea
                 id="promotional-offer"
-                placeholder="Enter any Promotional Offer"
+                placeholder="Enter any Promotional Offer: 50% off, Buy 1 Get 1 Free, etc."
                 value={promotionalOffer}
                 onChange={(e) => setPromotionalOffer(e.target.value)}
                 className="w-full"

@@ -11,7 +11,7 @@ export default function HomePage() {
             <ul className="flex space-x-4">
               <li><a href="#features" className="text-white hover:text-gray-200 transition-colors">Features</a></li>
               <li><a href="#how-it-works" className="text-white hover:text-gray-200 transition-colors">How It Works</a></li>
-              <li><a href="#pricing" className="text-white hover:text-gray-200 transition-colors">Pricing</a></li>
+              {/* <li><a href="#pricing" className="text-white hover:text-gray-200 transition-colors">Pricing</a></li> */}
             </ul>
           </nav>
         </div>
@@ -53,8 +53,8 @@ export default function HomePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <h3 className="text-xl font-semibold mb-2">Customizable</h3>
-                <p className="text-gray-600">Easily adjust and fine-tune your banners.</p>
+                <h3 className="text-xl font-semibold mb-2">Differet Sizes</h3>
+                <p className="text-gray-600">Supports various sizes</p>
               </div>
             </div>
           </div>
@@ -67,12 +67,12 @@ export default function HomePage() {
               <div className="flex flex-col items-center max-w-xs">
                 <div className="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4">1</div>
                 <h3 className="text-xl font-semibold mb-2">Upload Your Image</h3>
-                <p className="text-center text-gray-600">Start by uploading your product or brand image.</p>
+                <p className="text-center text-gray-600">Start by uploading your product image for training.</p>
               </div>
               <div className="flex flex-col items-center max-w-xs">
                 <div className="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4">2</div>
-                <h3 className="text-xl font-semibold mb-2">Choose Your Style</h3>
-                <p className="text-center text-gray-600">Select from various AI-generated design styles.</p>
+                <h3 className="text-xl font-semibold mb-2">Choose Your Theme, Offers and Sizes</h3>
+                <p className="text-center text-gray-600">Select from various themes or define yours.</p>
               </div>
               <div className="flex flex-col items-center max-w-xs">
                 <div className="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4">3</div>
@@ -83,7 +83,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="pricing" className="py-20 px-4">
+        {/* <section id="pricing" className="py-20 px-4">
           <div className="container mx-auto text-center">
             <h2 className="text-3xl font-bold mb-12">Simple, Transparent Pricing</h2>
             <div className="bg-white shadow-lg rounded-lg p-8 max-w-md mx-auto">
@@ -114,7 +114,7 @@ export default function HomePage() {
               </Button>
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section className="py-20 px-4 bg-purple-600 text-white">
           <div className="container mx-auto text-center">
