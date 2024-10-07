@@ -62,6 +62,7 @@ export default function CreatePage() {
     }
 
     const data: BannerResponse = await response.json()
+    console.log(data)
 
     setGeneratedBanners({
       images: data.images,
