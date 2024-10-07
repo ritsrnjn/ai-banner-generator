@@ -97,11 +97,11 @@ export default function CreatePage() {
         <div className="container mx-auto px-4 py-8">
           <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">Create Your Banner</h1>
 
-          <Alert variant="destructive" className="mb-6">
+          {/* <Alert variant="destructive" className="mb-6">
             <AlertCircle className="h-4 w-4" />
             <AlertTitle>Error</AlertTitle>
             <AlertDescription>Something is broken on our backend server and we are working to fix it soon! Please try again in some time.</AlertDescription>
-          </Alert>
+          </Alert> */}
 
           {error && (
             <Alert variant="destructive" className="mb-6">
