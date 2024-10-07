@@ -10,6 +10,8 @@ interface BannerResponse {
   prompt: string;
 }
 
+export const maxDuration = 50;
+
 export async function POST(request: NextRequest) {
   try {
     const { theme, size, product, promotionalOffer } = await request.json()
