@@ -121,9 +121,10 @@ export default function CreatePage() {
                   <SelectValue placeholder="Select a product" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="coca-cola">Coca Cola</SelectItem>
-                  <SelectItem value="mirinda">MyWoodCup</SelectItem>
-                  <SelectItem value="cadbury">Cadbury</SelectItem>
+                  <SelectItem value="Coca-Cola">Coca Cola</SelectItem>
+                  <SelectItem value="Cadbury">Cadbury</SelectItem>
+                  <SelectItem value="Nike">Nike</SelectItem>
+                  <SelectItem value="Amul Milk">Amul Milk</SelectItem>
                 </SelectContent>
               </Select>
             </div>
