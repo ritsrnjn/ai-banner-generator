@@ -19,18 +19,20 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
+    const requestBody = {
+      product_name: product, // Assuming 'product' maps to 'product_name'
+      theme,
+      extra_input: additionalInput, // Assuming 'additionalInput' maps to 'extra_input'
+      promotional_offer: size, // Assuming 'size' maps to 'promotional_offer'; adjust if this is incorrect
+    };
+
     // Make the actual API call to generate banners
     const response = await fetch('https://ai-banner-generator-backend-74430738063.us-central1.run.app/generate-ad', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        theme,
-        size,
-        product,
-        additionalInput,
-      }),
+      body: JSON.stringify(requestBody),
     })
 
     if (!response.ok) {

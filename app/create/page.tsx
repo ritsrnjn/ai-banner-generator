@@ -43,25 +43,25 @@ export default function CreatePage() {
     setError(null)
 
     try {
-            const response = await fetch('/api/generate-banner', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          theme: theme === 'custom' ? customTheme : theme,
-          size,
-          product,
-          additionalInput,
-        }),
-      })
+      const response = await fetch('/api/generate-banner', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        theme: theme === 'custom' ? customTheme : theme,
+        size,
+        product,
+        additionalInput,
+      }),
+    })
 
-      if (!response.ok) {
-        throw new Error('Failed to generate banner')
-      }
+    if (!response.ok) {
+      throw new Error('Failed to generate banner')
+    }
 
-      const data: BannerResponse = await response.json()
-      setGeneratedBanners(data)
+    const data: BannerResponse = await response.json()
+    setGeneratedBanners(data)
     } catch (error) {
       console.error('Error generating images:', error)
       setError('An Internal Server Error occurred while generating the banners. Working to fix it soon! Showing placeholder images.')
