@@ -62,6 +62,7 @@ export default function CreatePage() {
     }
 
     const data: BannerResponse = await response.json()
+    console.log("debug mulitple images case")
     console.log(data)
 
     setGeneratedBanners({
@@ -129,7 +130,7 @@ export default function CreatePage() {
                   <SelectItem value="Coca-Cola">Coca Cola</SelectItem>
                   <SelectItem value="Cadbury">Cadbury</SelectItem>
                   <SelectItem value="Nike">Nike</SelectItem>
-                  <SelectItem value="Amul Milk">Amul Milk</SelectItem>
+                  {/* <SelectItem value="Amul Milk">Amul Milk</SelectItem> */}
                 </SelectContent>
               </Select>
             </div>
