@@ -1,14 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 interface BannerImage {
+  layout_type: string;
+  prompt: string;
   url: string;
   content_type: string;
 }
 
-interface BannerResponse {
-  images: BannerImage[];
-  prompt: string;
-}
+type BannerResponse = BannerImage[];
 
 export const maxDuration = 50;
 

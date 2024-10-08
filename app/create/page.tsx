@@ -18,14 +18,13 @@ import {
 } from "@/components/ui/dialog"
 
 interface BannerImage {
+  layout_type: string;
+  prompt: string;
   url: string;
   content_type: string;
 }
 
-interface BannerResponse {
-  images: BannerImage[];
-  prompt: string;
-}
+type BannerResponse = BannerImage[];
 
 export default function CreatePage() {
   const [product, setProduct] = useState('')
@@ -65,21 +64,18 @@ export default function CreatePage() {
     console.log("debug mulitple images case")
     console.log(data)
 
-    setGeneratedBanners({
-      images: data.images,
-      prompt: data.prompt,
-    })
+    setGeneratedBanners(data)
     } catch (error) {
       console.error('Error generating images:', error)
       setError('An Internal Server Error occurred while generating the banners. Working to fix it soon! Showing placeholder images.')
       // Set placeholder data if the API call fails
-      setGeneratedBanners({
-        images: Array(4).fill({
+      setGeneratedBanners(
+        Array(4).fill({
           url: '/coke/1.png',
-          content_type: 'image/png'
+          content_type: 'image/png',
+                  prompt: 'Placeholder prompt for demonstration purposes'
         }),
-        prompt: 'Placeholder prompt for demonstration purposes'
-      })
+      )
     } finally {
       setIsGenerating(false)
     }
@@ -222,7 +218,7 @@ export default function CreatePage() {
             <div className="mt-12">
               <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Generated Banners</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                {generatedBanners.images.map((image, index) => (
+                {generatedBanners.map((image, index) => (
                   <Dialog key={index}>
                     <DialogTrigger asChild>
                       <div className="bg-white p-4 rounded-lg shadow-md cursor-pointer transition-transform hover:scale-105">
