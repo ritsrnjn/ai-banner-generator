@@ -4,18 +4,6 @@ import { Button } from '@/components/ui/button'
 export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="py-6 px-4 bg-gradient-to-r from-purple-500 to-pink-500">
-        <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-white">AI Banner Generator</h1>
-          <nav>
-            <ul className="flex space-x-4">
-              <li><a href="#features" className="text-white hover:text-gray-200 transition-colors">Features</a></li>
-              <li><a href="#how-it-works" className="text-white hover:text-gray-200 transition-colors">How It Works</a></li>
-              {/* <li><a href="#pricing" className="text-white hover:text-gray-200 transition-colors">Pricing</a></li> */}
-            </ul>
-          </nav>
-        </div>
-      </header>
 
       <main className="flex-grow">
         <section className="py-20 px-4 bg-gray-50">

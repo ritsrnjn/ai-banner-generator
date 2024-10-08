@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import Link from 'next/link'
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { AlertCircle } from "lucide-react"
 import {
@@ -16,6 +15,7 @@ import {
   // DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+
 
 interface BannerImage {
   url: string;
@@ -87,18 +87,6 @@ export default function CreatePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="py-6 px-4 bg-gradient-to-r from-purple-500 to-pink-500">
-        <div className="container mx-auto flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold text-white">AdVinci</Link>
-          <nav>
-            <ul className="flex space-x-4">
-              <li><Link href="/#features" className="text-white hover:text-gray-200 transition-colors">Features</Link></li>
-              <li><Link href="/#how-it-works" className="text-white hover:text-gray-200 transition-colors">How It Works</Link></li>
-              <li><Link href="/#pricing" className="text-white hover:text-gray-200 transition-colors">Pricing</Link></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
 
       <main className="flex-grow bg-gray-50">
         <div className="container mx-auto px-4 py-8">
