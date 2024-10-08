@@ -22,7 +22,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "AI Banner Creator",
+  title: "AdVinci: AI Banner Creator",
   description: "Create professional banners with AI in seconds.",
 };
 
