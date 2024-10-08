@@ -9,7 +9,7 @@ export function Header() {
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center space-x-2 text-white">
           <Home className="h-6 w-6" />
-          <span className="text-2xl font-bold">AI Banner Generator</span>
+          <span className="text-2xl font-bold">AdVinci</span>
         </Link>
         <nav className="flex items-center space-x-6">
           <SignedOut>
