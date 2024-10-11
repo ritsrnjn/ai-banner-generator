@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs"
-import { Home, Lightbulb, Info } from "lucide-react"
+import { Home } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function Header() {
@@ -12,7 +12,8 @@ export function Header() {
           <span className="text-2xl font-bold">AdVinci</span>
         </Link>
         <nav className="flex items-center space-x-6">
-          <SignedOut>
+          
+          {/* <SignedOut>
             <Link
               href="#features"
               className="flex items-center space-x-2 text-white hover:text-gray-200 transition-colors duration-200 ease-in-out transform hover:scale-105 active:scale-95"
@@ -27,7 +28,9 @@ export function Header() {
               <Info className="h-4 w-4" />
               <span>How It Works</span>
             </Link>
-          </SignedOut>
+          </SignedOut> */}
+
+
           <SignedOut>
             <SignInButton mode="modal">
               <Button
