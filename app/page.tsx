@@ -1,10 +1,63 @@
+'use client'
+
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import BannerShowcase from '@/components/BannerShowcase'
-import { Play } from 'lucide-react'
+import { Play, X } from 'lucide-react'
+import React, { useState, useRef } from 'react'
+
+
+interface VideoModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  if (!isOpen) return null
+
+  const handleVideoError = () => {
+    console.error("Error loading video. Please check the file path and format.");
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+      <div className="bg-white rounded-lg max-w-3xl w-full">
+        <div className="flex justify-end p-2">
+          <Button
+            onClick={onClose}
+            variant="ghost"
+            size="icon"
+            className="text-gray-500 hover:text-gray-700"
+          >
+            <X className="h-6 w-6" />
+          </Button>
+        </div>
+        <div className="p-4">
+          <video
+            ref={videoRef}
+            controls
+            className="w-full"
+            autoPlay
+            onError={handleVideoError}
+          >
+            <source src="/demo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 
 export default function HomePage() {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
+
+  const openVideoModal = () => setIsVideoModalOpen(true)
+  const closeVideoModal = () => setIsVideoModalOpen(false)
+
   return (
     <div className="flex flex-col min-h-screen">
 
@@ -29,7 +82,12 @@ export default function HomePage() {
                       Start Creating
                     </Button>
                   </Link>
-                  <Button size="lg" variant="outline" className=" bg-white/20 font-bold py-3 px-6 rounded-full transition-colors">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="bg-white/20 font-bold py-3 px-6 rounded-full transition-colors"
+                    onClick={openVideoModal}
+                  >
                     <Play className="w-4 h-4 mr-2" />
                     <span className="hidden sm:inline">Watch Demo</span>
                     <span className="sm:hidden">Demo</span>
@@ -43,13 +101,6 @@ export default function HomePage() {
           </div>
         </section>
         
-
-        {/* <section className="py-20 px-4">
-          <div className="container mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Our AI-Generated Banners</h2>
-            <BannerSlideshow />
-          </div>
-        </section> */}
 
         <section id="features" className="py-20 px-4">
           <div className="container mx-auto">
@@ -162,6 +213,7 @@ export default function HomePage() {
           </nav>
         </div>
       </footer>
+      <VideoModal isOpen={isVideoModalOpen} onClose={closeVideoModal} />
     </div>
   )
 }
