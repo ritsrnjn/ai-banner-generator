@@ -4,14 +4,13 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 
-
 const banners = [
     '/banners/1.png',
     '/banners/2.png',
     '/banners/3.png',
     '/banners/4.png',
   ]
-
+  
 
 export default function BannerShowcase() {
   const [currentIndex, setCurrentIndex] = useState(0)

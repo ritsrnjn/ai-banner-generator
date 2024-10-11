@@ -9,25 +9,6 @@ export default function HomePage() {
     <div className="flex flex-col min-h-screen">
 
       <main className="flex-grow">
-      <section className="py-20 px-4 bg-gray-50">
-          <div className="container mx-auto">
-            <div className="flex flex-col md:flex-row items-center justify-between">
-              <div className="md:w-1/2 mb-8 md:mb-0">
-                <h2 className="text-4xl font-bold mb-4">Create Stunning Banners with AI</h2>
-                <p className="text-xl text-gray-600 mb-8">Generate professional-looking banners in seconds using the power of artificial intelligence.</p>
-                <Link href="/create" passHref>
-                  <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full transition-colors">
-                    Start Creating
-                  </Button>
-                </Link>
-              </div>
-              <div className="md:w-1/2">
-                <BannerShowcase />
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section className="relative py-20 px-4 overflow-hidden bg-gradient-to-br from-purple-600 to-indigo-800 text-white">
           <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:40px_40px]" />
           <div className="container mx-auto relative">
@@ -42,19 +23,20 @@ export default function HomePage() {
                 <p className="text-xl md:text-2xl text-purple-100 mb-8 max-w-2xl text-center lg:text-left">
                   Generate professional-looking banners in seconds using the power of artificial intelligence.
                 </p>
-                <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mb-8">
+                <div className="flex flex-row justify-center lg:justify-start gap-4 mb-8">
                   <Link href="/create" passHref>
                     <Button size="lg" className="bg-white text-purple-700 hover:bg-purple-100 font-bold py-3 px-6 rounded-full transition-colors shadow-lg">
                       Start Creating
                     </Button>
                   </Link>
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20 font-bold py-3 px-6 rounded-full transition-colors">
+                  <Button size="lg" variant="outline" className=" bg-white/20 font-bold py-3 px-6 rounded-full transition-colors">
                     <Play className="w-4 h-4 mr-2" />
-                    Watch Demo
+                    <span className="hidden sm:inline">Watch Demo</span>
+                    <span className="sm:hidden">Demo</span>
                   </Button>
                 </div>
               </div>
-              <div className="lg:w-1/2 lg:pl-8">
+              <div className="lg:w-1/2 lg:pl-8 w-full">
                 <BannerShowcase />
               </div>
             </div>
