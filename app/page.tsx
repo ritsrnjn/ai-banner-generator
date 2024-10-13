@@ -70,11 +70,11 @@ export default function HomePage() {
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight text-center lg:text-left">
                   Create Stunning <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-500">
-                    AI-Powered Banners
+                    Product Banners Instantly
                   </span>
                 </h1>
                 <p className="text-xl md:text-2xl text-purple-100 mb-8 max-w-2xl text-center lg:text-left">
-                  Generate professional-looking banners in seconds using the power of artificial intelligence.
+                  Generate realistic and professional-looking banners in seconds.
                 </p>
                 <div className="flex flex-row justify-center lg:justify-start gap-4 mb-8">
                   <Link href="/create" passHref>
