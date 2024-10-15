@@ -30,6 +30,7 @@ export async function POST(request: NextRequest) {
     };
 
     const host = process.env.BACKEND_HOST || 'http://localhost:3000'
+    
     // Make the actual API call to generate banners
     const response = await fetch(host, {
       method: 'POST',
