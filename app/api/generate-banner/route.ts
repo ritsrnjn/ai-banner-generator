@@ -29,8 +29,9 @@ export async function POST(request: NextRequest) {
       flow_type: product === 'BannerWithText' ? 'banner_creation' : 'product_marketing',
     };
 
+    const host = process.env.BACKEND_HOST || 'http://localhost:3000'
     // Make the actual API call to generate banners
-    const response = await fetch('https://ai-banner-generator-backend-74430738063.us-central1.run.app/generate-ad', {
+    const response = await fetch(host, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
