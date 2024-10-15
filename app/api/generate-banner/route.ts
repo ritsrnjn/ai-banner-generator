@@ -26,6 +26,7 @@ export async function POST(request: NextRequest) {
       extra_input: 'The Images should be like a advertisment. Text should be very minimal relvant to promotional offer', 
       promotional_offer: promotionalOffer,
       image_size: size,
+      flow_type: product === 'BannerWithText' ? 'banner_creation' : 'product_marketing',
     };
 
     // Make the actual API call to generate banners

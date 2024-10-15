@@ -115,6 +115,7 @@ export default function CreatePage() {
                   <SelectItem value="Cadbury">Cadbury</SelectItem>
                   <SelectItem value="Nike">Nike</SelectItem>
                   <SelectItem value="MyWoodCup">MyWoodCup</SelectItem>
+                  <SelectItem value="BannerWithText">Banner With Text</SelectItem>
                   {/* <SelectItem value="Amul Milk">Amul Milk</SelectItem> */}
                 </SelectContent>
               </Select>
