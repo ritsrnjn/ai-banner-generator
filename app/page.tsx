@@ -77,7 +77,7 @@ export default function HomePage() {
                   Generate realistic and professional-looking banners in seconds.
                 </p>
                 <div className="flex flex-row justify-center lg:justify-start gap-4 mb-8">
-                  <Link href="/create" passHref>
+                  <Link href="/background" passHref>
                     <Button size="lg" className="bg-white text-purple-700 hover:bg-purple-100 font-bold py-3 px-6 rounded-full transition-colors shadow-lg">
                       Start Creating
                     </Button>
