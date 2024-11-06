@@ -13,6 +13,8 @@ export async function POST(request: Request) {
         })
 
         if (!response.ok) {
+            // delay by 2 seconds
+            await new Promise(resolve => setTimeout(resolve, 2000));
             // Return dummy data
             const mockResponse = {
                 urls: [
