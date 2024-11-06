@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 export async function POST(request: Request) {
     try {
         const formData = await request.formData();
-        const response = await fetch('https://banner-background-generator-74430738063.us-central1.run.app/generate-banner', {
+        const response = await fetch('https://new-ai-banner-generator-backend-74430738063.us-central1.run.app/generate-background', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
