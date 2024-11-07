@@ -11,12 +11,13 @@ import {
 } from "@/components/ui/dialog";
 import { Textarea } from '@/components/ui/textarea';
 
-// interface GeneratedImage {
-//   url: string;
-// }
+import { TextSpecification } from './TextSpecificationsTable';
+import TextSpecificationsTable from './TextSpecificationsTable';
+
 
 interface ApiResponse {
   urls: string[];
+  text_specifications?: TextSpecification[];
 }
 
 interface PreviewModalProps {
@@ -137,6 +138,7 @@ const BackgroundGenerator: React.FC = () => {
     company_context: '',
     event_context: ''
   });
+  const [textSpecifications, setTextSpecifications] = useState<TextSpecification[]>([]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     const { name, value } = e.target;
@@ -177,6 +179,9 @@ const BackgroundGenerator: React.FC = () => {
 
       const data: ApiResponse = await response.json();
       setGeneratedImages(data.urls);
+      if (data.text_specifications) {
+        setTextSpecifications(data.text_specifications);
+      }
     } catch (error) {
       console.error('Error:', error);
       // Use dummy data for demonstration
@@ -299,7 +304,12 @@ const BackgroundGenerator: React.FC = () => {
                 loading={loading}
               />
             </div>
+            {textSpecifications.length > 0 && (
+              <TextSpecificationsTable specifications={textSpecifications} />
+            )}
           </div>
+
+          
         </div>
       </div>
 
