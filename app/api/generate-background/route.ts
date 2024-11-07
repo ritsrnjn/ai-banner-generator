@@ -6,13 +6,11 @@ export async function POST(request: Request) {
         const formData = await request.formData();
         const response = await fetch('http://44.201.113.177:5001/generate-banner', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
             body: formData,
         })
 
         if (!response.ok) {
+            console.error('Error processing request:', response);
             // delay by 2 seconds
             await new Promise(resolve => setTimeout(resolve, 2000));
             // Return dummy data

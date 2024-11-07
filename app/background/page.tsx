@@ -38,7 +38,7 @@ const LoadingAnimation = () => (
           </div>
         </div>
         <p className="text-purple-600 text-lg font-medium animate-pulse">
-          Creating your banners...
+          Creating amazing backgrounds...
         </p>
       </div>
     </div>
