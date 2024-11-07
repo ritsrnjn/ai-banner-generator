@@ -48,7 +48,9 @@ export async function POST(request: Request) {
 
         // we need to convert response.json to required format
         const data = await response.json();
-        return NextResponse.json({ urls: data.urls });
+        console.log('Recieived Data:', data);
+        console.log('Recieived URLS:', data.top_urls);
+        return NextResponse.json({ urls: data.top_urls });
     } catch (error) {
         console.error('Error processing request:', error);
         return NextResponse.json(
