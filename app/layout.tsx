@@ -9,6 +9,11 @@ import {
   // UserButton
 } from '@clerk/nextjs'
 import {Header} from "@/components/header";
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
+
+
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -40,6 +45,8 @@ export default function RootLayout({
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Header />
           {children}
+          <SpeedInsights />
+          <Analytics />
         </body>
       </html>
     </ClerkProvider>
